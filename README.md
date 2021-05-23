@@ -6,25 +6,61 @@ _React Paginator Responsive Component_
 
 - [Storybook](http://localhost:6006)
 
-## Development
+### Installation
 
-### How to run the project locally
+**npm**
 
-1. Clone the repository:
-
-```
-git clone https://github.com/ivgomez/react-paginator-responsive.git
+```bash
+npm i react-paginator-responsive
 ```
 
-2. run `cd react-paginator`
+### Example
 
-3. run `npm ci` (or if there is no package-lock.json file, run `npm i`)
+```
+import { Paginator } from "react-paginator-responsive";
 
-4. run `npm run start`
+function App() {
 
-## How to run Storybook
+  return (
+    <Paginator page={1} pageSize={10} pageGroupSize={7} totalItems={120} />
+  );
+  
+}
 
-run `npm run storybook`
+export default App;
+
+```
+
+### Custom Styles
+
+```
+import { Paginator } from "react-paginator-responsive";
+
+function App() {
+
+  const styles = {
+    hideBackNextButtonText: false,
+    backAndNextTextButtonColor: "black",
+    paginatorButtonColor: "green",
+    paginatorButtonBackgroundColor: "#FFF8DC",
+    paginatorButtonSelectedColor: "red",
+    paginatorButtonHoverColor: "#F0F8FF",
+    lateralMargin: "0",
+  };
+
+  return (
+    <Paginator
+      page={1}
+      pageSize={10}
+      pageGroupSize={7}
+      totalItems={120}
+      styles={styles}
+    />
+  );
+}
+
+export default App;
+```
 
 ## Documentation
 
