@@ -14,11 +14,11 @@ import { useWindowSize } from '../libs';
 
 export const Paginator = (props: IPaginator) => {
   const {
-    page,
-    pageGroupSize,
-    pageSize,
-    items,
-    totalItems,
+    page = 1,
+    pageGroupSize = 7,
+    pageSize = 10,
+    items = [],
+    totalItems = 50,
     callback,
     styles = {},
   } = props;
@@ -49,7 +49,9 @@ export const Paginator = (props: IPaginator) => {
     setIsNextButtonEnabled(true);
     setIsBackButtonEnabled(true);
     if (pageNumber !== currentPage) {
-      callback(pageNumber);
+      if (callback) {
+        callback(pageNumber);
+      }
     }
     if (totalPage === pageNumber && totalPage > 1) {
       setIsBackButtonEnabled(false);
