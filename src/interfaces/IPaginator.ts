@@ -1,4 +1,4 @@
-import { IPaginatorInterface } from "./IPaginatorStyles";
+import { IPaginatorInterface } from './IPaginatorStyles';
 
 export interface IPaginator {
   page: number;
@@ -7,6 +7,6 @@ export interface IPaginator {
   items: any[];
   totalItems: number;
   refPoint?: any;
-  styles: IPaginatorInterface;
+  styles?: IPaginatorInterface;
   callback(pageNumber: number): void;
 }

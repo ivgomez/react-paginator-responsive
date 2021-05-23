@@ -20,7 +20,7 @@ export const Paginator = (props: IPaginator) => {
     items,
     totalItems,
     callback,
-    styles,
+    styles = {},
   } = props;
   const {
     hideBackNextButtonText,
