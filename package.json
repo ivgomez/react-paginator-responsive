@@ -23,7 +23,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs-build",
     "semantic-release": "semantic-release --branches main",
-    "chromatic": "chromatic --exit-zero-on-changes"
+    "chromatic": "npx chromatic --project-token=bd8a7ca04a7e"
   },
   "husky": {
     "hooks": {
