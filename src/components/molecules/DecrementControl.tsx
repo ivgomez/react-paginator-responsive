@@ -8,7 +8,7 @@ export const DecrementControl = ({
   btnGoToFirstElement,
   lastPage,
   currentPage,
-  pageGroupSize = 0,
+  pageGroup = 0,
   upperPageGroupSize,
   lowerPageGroupSize,
   setUpperPageGroupSize,
@@ -21,9 +21,9 @@ export const DecrementControl = ({
   paginatorButtonBackgroundColor,
 }: IIncrementDecrement) => {
   const btnDecrementClick = () => {
-    const previousPageNumber = upperPageGroupSize - pageGroupSize;
-    setUpperPageGroupSize(upperPageGroupSize - pageGroupSize);
-    setlowerPageGroupSize(lowerPageGroupSize - pageGroupSize);
+    const previousPageNumber = upperPageGroupSize - pageGroup;
+    setUpperPageGroupSize(upperPageGroupSize - pageGroup);
+    setlowerPageGroupSize(lowerPageGroupSize - pageGroup);
     setcurrentPage(previousPageNumber);
     setPrevAndNextBtnClass(previousPageNumber);
   };

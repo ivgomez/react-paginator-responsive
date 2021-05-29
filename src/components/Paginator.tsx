@@ -33,7 +33,8 @@ export const Paginator = (props: IPaginator) => {
   } = styles;
 
   const { isMobile } = useWindowSize();
-  const [upperPageGroupSize, setUpperPageGroupSize] = useState(pageGroupSize);
+  const pageGroup = isMobile ? 4 : pageGroupSize;
+  const [upperPageGroupSize, setUpperPageGroupSize] = useState(pageGroup);
   const [lowerPageGroupSize, setlowerPageGroupSize] = useState(0);
   const [currentPage, setcurrentPage] = useState(page);
   const [isNextButtonEnabled, setIsNextButtonEnabled] = useState(false);
@@ -43,7 +44,7 @@ export const Paginator = (props: IPaginator) => {
   const pageNumbers = Array.from({ length: totalPage }, (_, i) => i + 1);
   const firstPage = pageNumbers[0];
   const lastPage = pageNumbers[pageNumbers.length - 1];
-  const groupsFromTotalPage = Math.ceil(totalPage / pageGroupSize);
+  const groupsFromTotalPage = Math.ceil(totalPage / pageGroup);
 
   const setPrevAndNextBtnClass = (pageNumber: number) => {
     setIsNextButtonEnabled(true);
@@ -64,16 +65,16 @@ export const Paginator = (props: IPaginator) => {
   };
 
   const btnGoToFirstElement = (firstPage: number) => {
-    setUpperPageGroupSize(pageGroupSize);
+    setUpperPageGroupSize(pageGroup);
     setlowerPageGroupSize(0);
     setcurrentPage(firstPage);
     setPrevAndNextBtnClass(firstPage);
   };
 
   const btnPrevClick = () => {
-    if ((currentPage - 1) % pageGroupSize === 0) {
-      setUpperPageGroupSize(upperPageGroupSize - pageGroupSize);
-      setlowerPageGroupSize(lowerPageGroupSize - pageGroupSize);
+    if ((currentPage - 1) % pageGroup === 0) {
+      setUpperPageGroupSize(upperPageGroupSize - pageGroup);
+      setlowerPageGroupSize(lowerPageGroupSize - pageGroup);
     }
     const pageNumber = currentPage - 1;
     setcurrentPage(pageNumber);
@@ -83,8 +84,8 @@ export const Paginator = (props: IPaginator) => {
   const btnNextClick = () => {
     const pageNumber = currentPage + 1;
     if (currentPage + 1 > upperPageGroupSize) {
-      setUpperPageGroupSize(upperPageGroupSize + pageGroupSize);
-      setlowerPageGroupSize(lowerPageGroupSize + pageGroupSize);
+      setUpperPageGroupSize(upperPageGroupSize + pageGroup);
+      setlowerPageGroupSize(lowerPageGroupSize + pageGroup);
     }
     setcurrentPage(pageNumber);
     setPrevAndNextBtnClass(pageNumber);
@@ -111,7 +112,7 @@ export const Paginator = (props: IPaginator) => {
             firstPage={firstPage}
             lastPage={lastPage}
             currentPage={currentPage}
-            pageGroupSize={pageGroupSize}
+            pageGroup={pageGroup}
             upperPageGroupSize={upperPageGroupSize}
             lowerPageGroupSize={lowerPageGroupSize}
             setcurrentPage={setcurrentPage}
@@ -141,7 +142,7 @@ export const Paginator = (props: IPaginator) => {
             lastPage={lastPage}
             pageNumbers={pageNumbers}
             totalPage={totalPage}
-            pageGroupSize={pageGroupSize}
+            pageGroup={pageGroup}
             upperPageGroupSize={upperPageGroupSize}
             lowerPageGroupSize={lowerPageGroupSize}
             groupsFromTotalPage={groupsFromTotalPage}
@@ -181,10 +182,13 @@ const PaginatorWrapper = styled.div<IPaginatorInterface>`
 
   ${breakpoint.sm<any>`    
     justify-content: space-between;   
-    margin: ${({ lateralMargin }: any) => lateralMargin || '0 2rem'};
+    margin: ${({ lateralMargin, isMobile }: any) =>
+      isMobile ? '0' : lateralMargin || '0 2rem'};
     
   `}
 `;
+
+PaginatorWrapper.displayName = 'PaginatorWrapper';
 
 const PaginatorControlsWrapper = styled.div`
   display: flex;

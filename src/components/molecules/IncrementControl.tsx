@@ -8,7 +8,7 @@ export const IncrementControl = ({
   currentPage,
   pageNumbers = [],
   totalPage = 0,
-  pageGroupSize = 0,
+  pageGroup = 0,
   upperPageGroupSize,
   lowerPageGroupSize,
   groupsFromTotalPage = 0,
@@ -22,14 +22,14 @@ export const IncrementControl = ({
   paginatorButtonBackgroundColor,
 }: IIncrementDecrement) => {
   const btnGoToLastElement = () => {
-    const lastElements = totalPage % pageGroupSize;
+    const lastElements = totalPage % pageGroup;
     let lastGroupSize;
-    if (lastElements === 0 && totalPage > pageGroupSize) {
-      lastGroupSize = totalPage - pageGroupSize;
+    if (lastElements === 0 && totalPage > pageGroup) {
+      lastGroupSize = totalPage - pageGroup;
     } else {
       lastGroupSize = totalPage - lastElements;
     }
-    setUpperPageGroupSize(groupsFromTotalPage * pageGroupSize);
+    setUpperPageGroupSize(groupsFromTotalPage * pageGroup);
     setlowerPageGroupSize(lastGroupSize);
     setcurrentPage(lastPage);
     setPrevAndNextBtnClass(lastPage);
@@ -37,8 +37,8 @@ export const IncrementControl = ({
 
   const btnIncrementClick = () => {
     const listId = upperPageGroupSize + 1;
-    setUpperPageGroupSize(upperPageGroupSize + pageGroupSize);
-    setlowerPageGroupSize(lowerPageGroupSize + pageGroupSize);
+    setUpperPageGroupSize(upperPageGroupSize + pageGroup);
+    setlowerPageGroupSize(lowerPageGroupSize + pageGroup);
     setcurrentPage(listId);
     setPrevAndNextBtnClass(listId);
   };

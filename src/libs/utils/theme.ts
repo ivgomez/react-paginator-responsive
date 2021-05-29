@@ -1,5 +1,7 @@
 import { css } from 'styled-components';
 
+export const theme = {};
+
 interface Breakpoints {
   [key: string]: string;
 }
@@ -52,3 +54,5 @@ export const breakpoint = Object.keys(breakpoints).reduce(
   },
   {}
 );
+
+export default theme;

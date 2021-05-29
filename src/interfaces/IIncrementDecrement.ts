@@ -1,12 +1,12 @@
-import { IPageButton } from "./IPageButton";
-import { IPaginatorInterface } from "./IPaginatorStyles";
+import { IPageButton } from './IPageButton';
+import { IPaginatorInterface } from './IPaginatorStyles';
 
 export interface IIncrementDecrement extends IPageButton, IPaginatorInterface {
   firstPage?: number;
   lastPage?: number;
   totalPage?: number;
   pageNumbers?: number[];
-  pageGroupSize?: number;
+  pageGroup?: number;
   pageDecrementBtn?: number;
   upperPageGroupSize: number;
   lowerPageGroupSize: number;
