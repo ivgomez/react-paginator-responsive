@@ -43,6 +43,7 @@ const ButtonWrapper = styled.button<IPageButton>`
       : paginatorButtonColor} !important;
   border: none;
   cursor: pointer;
+  vertical-align: text-top;
   :hover {
     background-color: ${({ paginatorButtonHoverColor }) =>
       paginatorButtonHoverColor || 'grey'};
