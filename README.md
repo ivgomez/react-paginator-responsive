@@ -4,7 +4,7 @@ _React Paginator Responsive Component_
 
 ## Development Environments
 
-- [Storybook](http://localhost:6006)
+- [Storybook](https://60b1c76e3474f6004126eacc-pgfkzuufyn.chromatic.com/?path=/story/paginator--paginator)
 
 ### Installation
 
@@ -28,7 +28,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 ### Custom Styles
