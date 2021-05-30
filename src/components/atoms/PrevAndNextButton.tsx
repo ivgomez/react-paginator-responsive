@@ -65,14 +65,16 @@ const Button = styled.button<IPrevAndNextButton>`
   background-color: inherit;
   align-items: center;
   border: none;
-  cursor: pointer;
-  padding: 0;
+  border-radius: 5px;
+  cursor: pointer;  
+  padding: 5px;
   :disabled {
+    background-color: transparent !important;
     cursor: default;
   }
   :hover {
     background-color: ${({ paginatorButtonHoverColor }) =>
-      paginatorButtonHoverColor || 'grey'};
+      paginatorButtonHoverColor || '#effffb'};
   }
 `;
 

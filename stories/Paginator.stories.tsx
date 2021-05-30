@@ -5,12 +5,12 @@ import { Paginator } from '../src/components/Paginator';
 const stories = storiesOf('Paginator', module);
 
 const styles = {
-  hideBackNextButtonText: false,
+  hideBackNextButtonText: true,
   backAndNextTextButtonColor: 'black',
-  paginatorButtonColor: 'green',
-  paginatorButtonBackgroundColor: '#FFF8DC',
-  paginatorButtonSelectedColor: 'red',
-  paginatorButtonHoverColor: '#F0F8FF',
+  paginatorButtonColor: '#54565B',
+  paginatorButtonBackgroundColor: 'transparent',
+  paginatorButtonSelectedColor: '#fff',
+  // paginatorButtonHoverColor: '#F0F8FF',
   lateralMargin: '0',
 };
 
@@ -37,22 +37,22 @@ stories.add('Paginator', () => {
   };
 
   const mockProps = {
-    page: 1,
-    pageSize: 10,
-    totalItems: totalPages,
-    pageGroupSize: 7,
-    styles,
     callback: callbackHandle,
     items: data,
+    page: 1,
+    pageGroupSize: 7,
+    pageSize: 10,
+    styles,
+    totalItems: totalPages,
   };
 
   return (
     <>
-      <Paginator {...mockProps} />
-      <h1>Page: {currentPate}</h1>
+      <h1>Page {currentPate}</h1>
       <ul>
         {data && data.map((item: any) => <li key={item._id}>{item.name}</li>)}
       </ul>
+      <Paginator {...mockProps} />
     </>
   );
 });
