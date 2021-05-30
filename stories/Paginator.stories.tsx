@@ -48,8 +48,8 @@ stories.add('Paginator', () => {
 
   return (
     <>
-      <h1>Page {currentPate}</h1>
-      <ul>
+      <h1 style={{marginTop: 0}}>Page {currentPate}</h1>
+      <ul style={{marginBottom: '1.7rem'}}>
         {data && data.map((item: any) => <li key={item._id}>{item.name}</li>)}
       </ul>
       <Paginator {...mockProps} />

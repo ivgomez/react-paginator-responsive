@@ -49,7 +49,7 @@ const ButtonWrapper = styled.button<IPageButton>`
   font-weight: bold;
   vertical-align: text-top;
   :hover {
-    background-color: ${({ paginatorButtonHoverColor }) =>
-      paginatorButtonHoverColor || '#effffb'};
+    background-color: ${({ pageSeleted, currentPage, paginatorButtonHoverColor }) =>
+      pageSeleted !== currentPage && (paginatorButtonHoverColor || '#effffb')};
   }
 `;
