@@ -48,4 +48,8 @@ const ButtonWrapper = styled.button<IPageButton>`
     background-color: ${({ paginatorButtonHoverColor }) =>
       paginatorButtonHoverColor || 'grey'};
   }
+  :active {
+    outline: none;
+    border: none;
+  }
 `;
