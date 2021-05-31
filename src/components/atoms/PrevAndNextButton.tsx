@@ -18,6 +18,7 @@ export const PrevAndNextButton = (props: IPrevAndNextButton) => {
     label,
     isNext,
     disabled,
+    disabledColor,
     hideBackNextButtonText,
     paginatorButtonHoverColor,
     backAndNextTextButtonColor,
@@ -33,6 +34,7 @@ export const PrevAndNextButton = (props: IPrevAndNextButton) => {
         <ButtonText
           isNext={isNext}
           disabled={disabled}
+          disabledColor={disabledColor}
           backAndNextTextButtonColor={backAndNextTextButtonColor}
         >
           {label}
@@ -50,6 +52,7 @@ export const PrevAndNextButton = (props: IPrevAndNextButton) => {
       {!hideBackNextButtonText && !isMobile && (
         <ButtonText
           disabled={disabled}
+          disabledColor={disabledColor}
           backAndNextTextButtonColor={backAndNextTextButtonColor}
         >
           {label}
@@ -79,8 +82,8 @@ const Button = styled.button<IPrevAndNextButton>`
 `;
 
 const ButtonText = styled.span<IPrevAndNextButton>`
-  color: ${({ disabled, backAndNextTextButtonColor }) =>
-    disabled ? '#dddddd' : backAndNextTextButtonColor};
+  color: ${({ disabled, backAndNextTextButtonColor, disabledColor }) =>
+    disabled ? `${disabledColor || '#dddddd'}` : backAndNextTextButtonColor};
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 1px;

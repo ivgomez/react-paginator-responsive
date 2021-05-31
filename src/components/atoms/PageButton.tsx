@@ -41,7 +41,8 @@ const ButtonWrapper = styled.button<IPageButton>`
     currentPage === pageSeleted
       ? paginatorButtonSelectedColor
       : paginatorButtonColor} !important;
-  background-color: ${({ pageSeleted, currentPage}) => currentPage === pageSeleted && '#69C8B7'};
+  background-color: ${({ pageSeleted, currentPage }) =>
+    currentPage === pageSeleted && '#69C8B7'};
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -49,7 +50,15 @@ const ButtonWrapper = styled.button<IPageButton>`
   font-weight: bold;
   vertical-align: text-top;
   :hover {
-    background-color: ${({ pageSeleted, currentPage, paginatorButtonHoverColor }) =>
+    background-color: ${({
+      pageSeleted,
+      currentPage,
+      paginatorButtonHoverColor,
+    }) =>
       pageSeleted !== currentPage && (paginatorButtonHoverColor || '#effffb')};
+  }
+  :active {
+    outline: none;
+    border: none;
   }
 `;

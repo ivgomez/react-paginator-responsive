@@ -15,33 +15,37 @@ import { useWindowSize } from '../libs';
 export const Paginator = (props: IPaginator) => {
   const {
     page = 1,
-    pageGroupSize = 7,
-    pageSize = 10,
     items = [],
+    pageSize = 10,
     totalItems = 50,
+    pageGroupSize = 7,
     callback,
     styles = {},
   } = props;
   const {
-    hideBackNextButtonText,
-    paginatorButtonColor,
-    paginatorButtonHoverColor,
-    paginatorButtonSelectedColor,
-    backAndNextTextButtonColor,
-    paginatorButtonBackgroundColor,
+    iconColor,
+    disabledColor,
     lateralMargin,
+    PaginatorInfoColor,
+    paginatorButtonColor,
+    hideBackNextButtonText,
+    paginatorButtonHoverColor,
+    backAndNextTextButtonColor,
+    paginatorButtonSelectedColor,
+    paginatorButtonBackgroundColor,
   } = styles;
 
   const { isMobile } = useWindowSize();
   const pageGroup = isMobile ? 4 : pageGroupSize;
-  const [upperPageGroupSize, setUpperPageGroupSize] = useState(pageGroup);
-  const [lowerPageGroupSize, setlowerPageGroupSize] = useState(0);
   const [currentPage, setcurrentPage] = useState(page);
-  const [isNextButtonEnabled, setIsNextButtonEnabled] = useState(false);
+  const [lowerPageGroupSize, setlowerPageGroupSize] = useState(0);
   const [isBackButtonEnabled, setIsBackButtonEnabled] = useState(true);
+  const [isNextButtonEnabled, setIsNextButtonEnabled] = useState(false);
+  const [upperPageGroupSize, setUpperPageGroupSize] = useState(pageGroup);
 
   const totalPage: number | string = Math.ceil(totalItems / pageSize);
   const pageNumbers = Array.from({ length: totalPage }, (_, i) => i + 1);
+
   const firstPage = pageNumbers[0];
   const lastPage = pageNumbers[pageNumbers.length - 1];
   const groupsFromTotalPage = Math.ceil(totalPage / pageGroup);
@@ -101,11 +105,16 @@ export const Paginator = (props: IPaginator) => {
           label="BACK"
           disabled={isBackButtonEnabled}
           onClick={btnPrevClick}
+          disabledColor={disabledColor}
           hideBackNextButtonText={hideBackNextButtonText}
           paginatorButtonHoverColor={paginatorButtonHoverColor}
           backAndNextTextButtonColor={backAndNextTextButtonColor}
         >
-          <NavigateBefore size="28" />
+          <NavigateBeforeIcon
+            iconColor={iconColor}
+            disabledColor={disabledColor}
+            disabled={isBackButtonEnabled}
+          />
         </PreviousButton>
         <PageButtonContainer>
           <DecrementControl
@@ -138,19 +147,19 @@ export const Paginator = (props: IPaginator) => {
             paginatorButtonBackgroundColor={paginatorButtonBackgroundColor}
           />
           <IncrementControl
-            currentPage={currentPage}
             lastPage={lastPage}
             pageNumbers={pageNumbers}
             totalPage={totalPage}
             pageGroup={pageGroup}
-            upperPageGroupSize={upperPageGroupSize}
-            lowerPageGroupSize={lowerPageGroupSize}
             groupsFromTotalPage={groupsFromTotalPage}
             setUpperPageGroupSize={setUpperPageGroupSize}
             setlowerPageGroupSize={setlowerPageGroupSize}
             setcurrentPage={setcurrentPage}
-            setPrevAndNextBtnClass={setPrevAndNextBtnClass}
+            currentPage={currentPage}
+            lowerPageGroupSize={lowerPageGroupSize}
+            upperPageGroupSize={upperPageGroupSize}
             paginatorButtonColor={paginatorButtonColor}
+            setPrevAndNextBtnClass={setPrevAndNextBtnClass}
             paginatorButtonHoverColor={paginatorButtonHoverColor}
             paginatorButtonSelectedColor={paginatorButtonSelectedColor}
             paginatorButtonBackgroundColor={paginatorButtonBackgroundColor}
@@ -161,15 +170,24 @@ export const Paginator = (props: IPaginator) => {
           isNext
           disabled={isNextButtonEnabled}
           onClick={btnNextClick}
+          disabledColor={disabledColor}
           paginatorButtonColor={paginatorButtonColor}
           hideBackNextButtonText={hideBackNextButtonText}
           paginatorButtonHoverColor={paginatorButtonHoverColor}
           backAndNextTextButtonColor={backAndNextTextButtonColor}
         >
-          <NavigateNext size="28" />
+          <NavigateNextIcon
+            iconColor={iconColor}
+            disabledColor={disabledColor}
+            disabled={isNextButtonEnabled}
+          />
         </NextButton>
       </PaginatorControlsWrapper>
-      {!isMobile && <PaginatorInfo>{paginatorDisplayInfo()}</PaginatorInfo>}
+      {!isMobile && (
+        <PaginatorInfo PaginatorInfoColor={PaginatorInfoColor}>
+          {paginatorDisplayInfo()}
+        </PaginatorInfo>
+      )}
     </PaginatorWrapper>
   );
 };
@@ -200,11 +218,26 @@ const PageButtonContainer = styled.ul`
   padding: 0;
 `;
 
-const PaginatorInfo = styled.span`
-  color: rgba(140, 140, 140, 0.99);
+const PaginatorInfo = styled.span<IPaginatorInterface>`
+  color: ${({ PaginatorInfoColor }) =>
+    PaginatorInfoColor || 'rgba(140, 140, 140, 0.99)'};
   font-size: 12px;
   letter-spacing: 0.3px;
   line-height: 18px;
+`;
+
+const NavigateNextIcon = styled(NavigateNext)<IPaginatorInterface>`
+  heigth: auto;
+  width: 28px;
+  color: ${({ disabled, disabledColor, iconColor }) =>
+    disabled ? disabledColor : iconColor};
+`;
+
+const NavigateBeforeIcon = styled(NavigateBefore)<IPaginatorInterface>`
+  heigth: auto;
+  width: 28px;
+  color: ${({ disabled, disabledColor, iconColor }) =>
+    disabled ? disabledColor : iconColor};
 `;
 
 const PreviousButton = styled(PrevAndNextButton)``;

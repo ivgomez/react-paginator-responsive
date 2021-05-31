@@ -11,6 +11,9 @@ const styles = {
   paginatorButtonBackgroundColor: 'transparent',
   paginatorButtonSelectedColor: '#fff',
   // paginatorButtonHoverColor: '#F0F8FF',
+  //iconColor: 'green',
+  //disabledColor: 'pink',
+  //PaginatorInfoColor: 'gray',
   lateralMargin: '0',
 };
 
@@ -48,8 +51,8 @@ stories.add('Paginator', () => {
 
   return (
     <>
-      <h1 style={{marginTop: 0}}>Page {currentPate}</h1>
-      <ul style={{marginBottom: '1.7rem'}}>
+      <h1 style={{ marginTop: 0 }}>Page {currentPate}</h1>
+      <ul style={{ marginBottom: '1.7rem' }}>
         {data && data.map((item: any) => <li key={item._id}>{item.name}</li>)}
       </ul>
       <Paginator {...mockProps} />
