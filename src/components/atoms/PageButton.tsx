@@ -31,7 +31,7 @@ export const PageButton = (props: any) => {
 
 const ButtonWrapper = styled.button<IPageButton>`
   background-color: ${({ paginatorButtonBackgroundColor }) =>
-    paginatorButtonBackgroundColor || 'grey'};
+    paginatorButtonBackgroundColor || 'transparent'};
   color: ${({
     pageSeleted,
     currentPage,
@@ -46,7 +46,7 @@ const ButtonWrapper = styled.button<IPageButton>`
   vertical-align: text-top;
   :hover {
     background-color: ${({ paginatorButtonHoverColor }) =>
-      paginatorButtonHoverColor || 'grey'};
+      paginatorButtonHoverColor || 'transparent'};
   }
   :active {
     outline: none;
