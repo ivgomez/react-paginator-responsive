@@ -16,6 +16,8 @@ npm i react-paginator-responsive
 
 ### Example
 
+![image](https://user-images.githubusercontent.com/33350538/119278250-b302a080-bbe9-11eb-850f-83a43cc3903d.png)
+
 ```
 import { Paginator } from "react-paginator-responsive";
 
@@ -61,8 +63,6 @@ function App() {
 export default App;
 ```
 
-![image](https://user-images.githubusercontent.com/33350538/119278250-b302a080-bbe9-11eb-850f-83a43cc3903d.png)
-
 ## Props
 
 | Name              | Type         | Description                                          |
@@ -76,12 +76,15 @@ export default App;
 
 ## Custom Styles Props
 
-| Name                               | Type    | Description                                                                                    |
-| ---------------------------------- | ------- | ---------------------------------------------------------------------------------------------- |
-| **pageSizehideBackNextButtonText** | boolean | Show or hide the text of the previous and next buttons. By default is shown with a true value. |
-| **backAndNextTextButtonColor**     | string  | Text color of the previous and next buttons.                                                   |
-| **paginatorButtonColor**           | string  | Text Color of the page buttons list.                                                           |
-| **paginatorButtonBackgroundColor** | string  | Backgound color of the page buttons list.                                                      |
-| **paginatorButtonSelectedColor**   | string  | Text color of the page button after be selected.                                               |
-| **paginatorButtonHoverColor**      | string  | Background color of the page buttons list on hover.                                            |
-| **lateralMargin**                  | string  | lateral margin of the paginator component. Default value: `0px 0px 0px 0px`                    |
+| Name                               | Type    | Description                                                                                                        |
+| ---------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
+| **pageSizehideBackNextButtonText** | boolean | Show or hide the text of the previous and next buttons. By default is shown with a true value.                     |
+| **backAndNextTextButtonColor**     | string  | Text color of the previous and next buttons.                                                                       |
+| **paginatorButtonColor**           | string  | Text Color of the page buttons list.                                                                               |
+| **paginatorButtonBackgroundColor** | string  | Backgound color of the page buttons list.                                                                          |
+| **paginatorButtonSelectedColor**   | string  | Text color of the page button after be selected.                                                                   |
+| **paginatorButtonHoverColor**      | string  | Background color of the page buttons list on hover.                                                                |
+| **lateralMargin**                  | string  | lateral margin of the paginator component. Default value: `0px 0px 0px 0px`                                        |
+| **iconColor**                      | string  | Icon color. You can use hex, rgb and rgba values to set it                                                         |
+| **disabledColor**                  | string  | Color for disable selector applied to icons and previous and next buttons. Use hex, rgb and rgba values to set it. |
+| **PaginatorInfoColor**             | string  | Color applied to the paginator info section. Use hex, rgb and rgba values to set it.                               |
