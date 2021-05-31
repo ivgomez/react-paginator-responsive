@@ -85,6 +85,6 @@ export default App;
 | **paginatorButtonSelectedColor**   | string  | Text color of the page button after be selected.                                                                   |
 | **paginatorButtonHoverColor**      | string  | Background color of the page buttons list on hover.                                                                |
 | **lateralMargin**                  | string  | lateral margin of the paginator component. Default value: `0px 0px 0px 0px`                                        |
-| **iconColor**                      | string  | Icon color. You can use hex, rgb and rgba values to set it                                                         |
+| **iconColor**                      | string  | Icon color. You can use hex, rgb and rgba values to set it.                                                        |
 | **disabledColor**                  | string  | Color for disable selector applied to icons and previous and next buttons. Use hex, rgb and rgba values to set it. |
 | **PaginatorInfoColor**             | string  | Color applied to the paginator info section. Use hex, rgb and rgba values to set it.                               |
