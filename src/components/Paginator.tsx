@@ -30,6 +30,8 @@ export const Paginator = (props: IPaginator) => {
     backAndNextTextButtonColor,
     paginatorButtonBackgroundColor,
     lateralMargin,
+    disabledColor,
+    iconColor,
   } = styles;
 
   const { isMobile } = useWindowSize();
@@ -101,11 +103,16 @@ export const Paginator = (props: IPaginator) => {
           label="BACK"
           disabled={isBackButtonEnabled}
           onClick={btnPrevClick}
+          disabledColor={disabledColor}
           hideBackNextButtonText={hideBackNextButtonText}
           paginatorButtonHoverColor={paginatorButtonHoverColor}
           backAndNextTextButtonColor={backAndNextTextButtonColor}
         >
-          <NavigateBefore size="28" />
+          <NavigateBeforeIcon
+            iconColor={iconColor}
+            disabledColor={disabledColor}
+            disabled={isBackButtonEnabled}
+          />
         </PreviousButton>
         <PageButtonContainer>
           <DecrementControl
@@ -161,12 +168,17 @@ export const Paginator = (props: IPaginator) => {
           isNext
           disabled={isNextButtonEnabled}
           onClick={btnNextClick}
+          disabledColor={disabledColor}
           paginatorButtonColor={paginatorButtonColor}
           hideBackNextButtonText={hideBackNextButtonText}
           paginatorButtonHoverColor={paginatorButtonHoverColor}
           backAndNextTextButtonColor={backAndNextTextButtonColor}
         >
-          <NavigateNext size="28" />
+          <NavigateNextIcon
+            iconColor={iconColor}
+            disabledColor={disabledColor}
+            disabled={isNextButtonEnabled}
+          />
         </NextButton>
       </PaginatorControlsWrapper>
       {!isMobile && <PaginatorInfo>{paginatorDisplayInfo()}</PaginatorInfo>}
@@ -205,6 +217,20 @@ const PaginatorInfo = styled.span`
   font-size: 12px;
   letter-spacing: 0.3px;
   line-height: 18px;
+`;
+
+const NavigateNextIcon = styled(NavigateNext)<any>`
+  heigth: auto;
+  width: 28px;
+  color: ${({ disabled, disabledColor, iconColor }) =>
+    disabled ? disabledColor : iconColor};
+`;
+
+const NavigateBeforeIcon = styled(NavigateBefore)<any>`
+  heigth: auto;
+  width: 28px;
+  color: ${({ disabled, disabledColor, iconColor }) =>
+    disabled ? disabledColor : iconColor};
 `;
 
 const PreviousButton = styled(PrevAndNextButton)``;
