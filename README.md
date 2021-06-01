@@ -16,7 +16,7 @@ npm i react-paginator-responsive
 
 ### Example
 
-![image](https://user-images.githubusercontent.com/33350538/119278250-b302a080-bbe9-11eb-850f-83a43cc3903d.png)
+![image](https://user-images.githubusercontent.com/33350538/120351763-c1c21500-c2c5-11eb-83ec-bd1e70917aa7.png)
 
 ```
 import { Paginator } from "react-paginator-responsive";
