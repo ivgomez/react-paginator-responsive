@@ -12,6 +12,7 @@ export const PageButton = (props: any) => {
     paginatorButtonHoverColor,
     paginatorButtonSelectedColor,
     paginatorButtonBackgroundColor,
+    paginatorButtonSelectedBackgroundColor,
   } = props;
 
   return (
@@ -23,6 +24,9 @@ export const PageButton = (props: any) => {
       paginatorButtonHoverColor={paginatorButtonHoverColor}
       paginatorButtonSelectedColor={paginatorButtonSelectedColor}
       paginatorButtonBackgroundColor={paginatorButtonBackgroundColor}
+      paginatorButtonSelectedBackgroundColor={
+        paginatorButtonSelectedBackgroundColor
+      }
     >
       {children}
     </ButtonWrapper>
@@ -41,8 +45,13 @@ const ButtonWrapper = styled.button<IPageButton>`
     currentPage === pageSeleted
       ? paginatorButtonSelectedColor
       : paginatorButtonColor} !important;
-  background-color: ${({ pageSeleted, currentPage }) =>
-    currentPage === pageSeleted && '#69C8B7'};
+  background-color: ${({
+    pageSeleted,
+    currentPage,
+    paginatorButtonSelectedBackgroundColor,
+  }) =>
+    currentPage === pageSeleted &&
+    (paginatorButtonSelectedBackgroundColor || '#69C8B7')};
   border: none;
   border-radius: 5px;
   cursor: pointer;

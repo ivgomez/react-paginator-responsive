@@ -14,6 +14,7 @@ export const PageButtonsControl = ({
   paginatorButtonHoverColor,
   paginatorButtonSelectedColor,
   paginatorButtonBackgroundColor,
+  paginatorButtonSelectedBackgroundColor,
 }: IIncrementDecrement) => {
   const handleClick = (pageSeleted: number) => {
     setcurrentPage(pageSeleted);
@@ -33,6 +34,9 @@ export const PageButtonsControl = ({
               paginatorButtonHoverColor={paginatorButtonHoverColor}
               paginatorButtonSelectedColor={paginatorButtonSelectedColor}
               paginatorButtonBackgroundColor={paginatorButtonBackgroundColor}
+              paginatorButtonSelectedBackgroundColor={
+                paginatorButtonSelectedBackgroundColor
+              }
             >
               {number}
             </PageButton>
@@ -49,6 +53,9 @@ export const PageButtonsControl = ({
                 paginatorButtonHoverColor={paginatorButtonHoverColor}
                 paginatorButtonSelectedColor={paginatorButtonSelectedColor}
                 paginatorButtonBackgroundColor={paginatorButtonBackgroundColor}
+                paginatorButtonSelectedBackgroundColor={
+                  paginatorButtonSelectedBackgroundColor
+                }
               >
                 {number}
               </PageButton>

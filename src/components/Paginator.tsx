@@ -33,6 +33,7 @@ export const Paginator = (props: IPaginator) => {
     backAndNextTextButtonColor,
     paginatorButtonSelectedColor,
     paginatorButtonBackgroundColor,
+    paginatorButtonSelectedBackgroundColor,
   } = styles;
 
   const { isMobile } = useWindowSize();
@@ -145,6 +146,9 @@ export const Paginator = (props: IPaginator) => {
             paginatorButtonHoverColor={paginatorButtonHoverColor}
             paginatorButtonSelectedColor={paginatorButtonSelectedColor}
             paginatorButtonBackgroundColor={paginatorButtonBackgroundColor}
+            paginatorButtonSelectedBackgroundColor={
+              paginatorButtonSelectedBackgroundColor
+            }
           />
           <IncrementControl
             lastPage={lastPage}

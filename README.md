@@ -76,15 +76,16 @@ export default App;
 
 ## Custom Styles Props
 
-| Name                               | Type    | Description                                                                                                        |
-| ---------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
-| **pageSizehideBackNextButtonText** | boolean | Show or hide the text of the previous and next buttons. By default is shown with a true value.                     |
-| **backAndNextTextButtonColor**     | string  | Text color of the previous and next buttons.                                                                       |
-| **paginatorButtonColor**           | string  | Text Color of the page buttons list.                                                                               |
-| **paginatorButtonBackgroundColor** | string  | Backgound color of the page buttons list.                                                                          |
-| **paginatorButtonSelectedColor**   | string  | Text color of the page button after be selected.                                                                   |
-| **paginatorButtonHoverColor**      | string  | Background color of the page buttons list on hover.                                                                |
-| **lateralMargin**                  | string  | lateral margin of the paginator component. Default value: `0px 0px 0px 0px`                                        |
-| **iconColor**                      | string  | Icon color. You can use hex, rgb and rgba values to set it.                                                        |
-| **disabledColor**                  | string  | Color for disable selector applied to icons and previous and next buttons. Use hex, rgb and rgba values to set it. |
-| **PaginatorInfoColor**             | string  | Color applied to the paginator info section. Use hex, rgb and rgba values to set it.                               |
+| Name                                       | Type    | Description                                                                                                        |
+| ------------------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------ |
+| **pageSizehideBackNextButtonText**         | boolean | Show or hide the text of the previous and next buttons. By default is shown with a true value.                     |
+| **backAndNextTextButtonColor**             | string  | Text color of the previous and next buttons.                                                                       |
+| **paginatorButtonColor**                   | string  | Text Color of the page buttons list.                                                                               |
+| **paginatorButtonBackgroundColor**         | string  | Backgound color of the page buttons list.                                                                          |
+| **paginatorButtonSelectedColor**           | string  | Text color of the page button after be selected.                                                                   |
+| **paginatorButtonHoverColor**              | string  | Background color of the page buttons list on hover.                                                                |
+| **lateralMargin**                          | string  | lateral margin of the paginator component. Default value: `0px 0px 0px 0px`                                        |
+| **iconColor**                              | string  | Icon color. You can use hex, rgb and rgba values to set it.                                                        |
+| **disabledColor**                          | string  | Color for disable selector applied to icons and previous and next buttons. Use hex, rgb and rgba values to set it. |
+| **PaginatorInfoColor**                     | string  | Color applied to the paginator info section. Use hex, rgb and rgba values to set it.                               |
+| **paginatorButtonSelectedBackgroundColor** | string  | Color applied to the background of the selected page button. Use hex, rgb and rgba values to set it.               |
