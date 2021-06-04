@@ -17,7 +17,7 @@ npm i react-paginator-responsive
 
 ### Example
 
-![image](https://github.com/ivgomez/react-paginator-responsive/blob/PR-5-Update-doc/docs/images/paginatorGif.gif)
+![image](https://github.com/ivgomez/react-paginator-responsive/blob/main/docs/images/paginatorGif.gif)
 
 ```
 import { Paginator } from "react-paginator-responsive";
