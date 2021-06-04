@@ -89,3 +89,5 @@ export default App;
 | **disabledColor**                          | string  | Color for disable selector applied to icons and previous and next buttons. Use hex, rgb and rgba values to set it. |
 | **PaginatorInfoColor**                     | string  | Color applied to the paginator info section. Use hex, rgb and rgba values to set it.                               |
 | **paginatorButtonSelectedBackgroundColor** | string  | Color applied to the background of the selected page button. Use hex, rgb and rgba values to set it.               |
+| **hidePaginatorInfo**                      | boolean | Hide or show the pagination section info. Boolean value.                                                           |
+| **centerPaginator**                        | boolean | Center the paginator and the pagination section info. Boolean value.                                               |

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { NavigateNext, NavigateBefore } from '@styled-icons/material';
 import { breakpoint } from '../libs';
@@ -26,6 +26,8 @@ export const Paginator = (props: IPaginator) => {
     iconColor,
     disabledColor,
     lateralMargin,
+    centerPaginator,
+    hidePaginatorInfo,
     PaginatorInfoColor,
     paginatorButtonColor,
     hideBackNextButtonText,
@@ -43,6 +45,7 @@ export const Paginator = (props: IPaginator) => {
   const [isBackButtonEnabled, setIsBackButtonEnabled] = useState(true);
   const [isNextButtonEnabled, setIsNextButtonEnabled] = useState(false);
   const [upperPageGroupSize, setUpperPageGroupSize] = useState(pageGroup);
+  const [paginatorInfo, setPaginatorInfo] = useState(hidePaginatorInfo);
 
   const totalPage: number | string = Math.ceil(totalItems / pageSize);
   const pageNumbers = Array.from({ length: totalPage }, (_, i) => i + 1);
@@ -50,6 +53,13 @@ export const Paginator = (props: IPaginator) => {
   const firstPage = pageNumbers[0];
   const lastPage = pageNumbers[pageNumbers.length - 1];
   const groupsFromTotalPage = Math.ceil(totalPage / pageGroup);
+
+  useEffect(() => {
+    setPaginatorInfo(hidePaginatorInfo);
+    if (isMobile) {
+      setPaginatorInfo(isMobile);
+    }
+  }, [isMobile]);
 
   const setPrevAndNextBtnClass = (pageNumber: number) => {
     setIsNextButtonEnabled(true);
@@ -100,7 +110,11 @@ export const Paginator = (props: IPaginator) => {
     getPaginatorInfo(pageSize, lastPage, currentPage, items, totalItems);
 
   return (
-    <PaginatorWrapper lateralMargin={lateralMargin}>
+    <PaginatorWrapper
+      lateralMargin={lateralMargin}
+      centerPaginator={centerPaginator}
+      hidePaginatorInfo={hidePaginatorInfo}
+    >
       <PaginatorControlsWrapper>
         <PreviousButton
           label="BACK"
@@ -187,7 +201,7 @@ export const Paginator = (props: IPaginator) => {
           />
         </NextButton>
       </PaginatorControlsWrapper>
-      {!isMobile && (
+      {!paginatorInfo && (
         <PaginatorInfo PaginatorInfoColor={PaginatorInfoColor}>
           {paginatorDisplayInfo()}
         </PaginatorInfo>
@@ -203,7 +217,14 @@ const PaginatorWrapper = styled.div<IPaginatorInterface>`
   align-content: center;
 
   ${breakpoint.sm<any>`    
-    justify-content: space-between;   
+    justify-content: ${({ centerPaginator, hidePaginatorInfo }: any) => {
+      if (centerPaginator && !hidePaginatorInfo) {
+        return 'space-around';
+      } else if (centerPaginator && hidePaginatorInfo) {
+        return 'center';
+      } else return 'space-between';
+    }};
+        
     margin: ${({ lateralMargin, isMobile }: any) =>
       isMobile ? '0' : lateralMargin || '0 2rem'};
     
