@@ -16,7 +16,7 @@ const styles = {
   //disabledColor: 'pink',
   //PaginatorInfoColor: 'gray',
   //hidePaginatorInfo: false,
-  centerPaginator: true,
+  //centerPaginator: true,
   lateralMargin: '0',
 };
 

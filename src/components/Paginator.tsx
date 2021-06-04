@@ -59,7 +59,7 @@ export const Paginator = (props: IPaginator) => {
     if (isMobile) {
       setPaginatorInfo(isMobile);
     }
-  }, [isMobile]);
+  }, [isMobile, hidePaginatorInfo]);
 
   const setPrevAndNextBtnClass = (pageNumber: number) => {
     setIsNextButtonEnabled(true);
