@@ -5,7 +5,7 @@ _React Paginator Responsive Component_
 ## Development Environments
 
 - [Demo](https://ivgomez.github.io/paginator-front-test)
-- [Storybook](https://60b1c76e3474f6004126eacc-akkpncquut.chromatic.com/?path=/story/paginator--paginator)
+- [Storybook](https://60b1c76e3474f6004126eacc-bsktjyzmmc.chromatic.com/?path=/story/paginator--paginator)
 
 ### Installation
 
