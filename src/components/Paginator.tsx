@@ -39,7 +39,7 @@ export const Paginator = (props: IPaginator) => {
   } = styles;
 
   const { isMobile, isXs } = useWindowSize();
-  const pageGroup = isXs ? 3 : pageGroupSize;
+  const pageGroup = isMobile ? 3 : pageGroupSize;
   const [currentPage, setcurrentPage] = useState(page);
   const [lowerPageGroupSize, setlowerPageGroupSize] = useState(0);
   const [isBackButtonEnabled, setIsBackButtonEnabled] = useState(true);
