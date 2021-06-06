@@ -21,7 +21,6 @@ npm i react-paginator-responsive
   <img width="80%" src="https://github.com/ivgomez/react-paginator-responsive/blob/main/docs/images/paginatorGif.gif">
 </p>
 
-
 ```
 import { Paginator } from "react-paginator-responsive";
 
@@ -69,14 +68,14 @@ export default App;
 
 ## Props
 
-| Name              | Type         | Description                                          |
-| ----------------- | ------------ | ---------------------------------------------------- |
-| **page**          | number       | current page.                                        |
-| **pageSize**      | number       | Items displayed by page.                             |
-| **pageGroupSize** | number       | Buttons page size displayed in the paginator.        |
-| **items**         | object array | Data.                                                |
-| **callback**      | function     | Function to call the endpoint with a new page value. |
-| **styles**        | object       | Custom styles.                                       |
+| Name         | Type              | Description                                          |
+| ------------ | ----------------- | ---------------------------------------------------- | --------------------------------------------- | --- |
+| **page**     | number            | current page.                                        |
+| **pageSize** | number            | Items displayed by page.                             |
+| <!--         | **pageGroupSize** | number                                               | Buttons page size displayed in the paginator. | --> |
+| **items**    | object array      | Data.                                                |
+| **callback** | function          | Function to call the endpoint with a new page value. |
+| **styles**   | object            | Custom styles.                                       |
 
 ## Custom Styles Props
 

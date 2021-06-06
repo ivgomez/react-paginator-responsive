@@ -18,7 +18,7 @@ export const Paginator = (props: IPaginator) => {
     items = [],
     pageSize = 10,
     totalItems = 50,
-    pageGroupSize = 7,
+    pageGroupSize = 6,
     callback,
     styles = {},
   } = props;
