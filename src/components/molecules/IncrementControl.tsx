@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { PageButton } from '../atoms';
 import { IIncrementDecrement } from '../../interfaces';
+import { useWindowSize } from '../../libs';
 
 export const IncrementControl = ({
   lastPage,
@@ -21,6 +22,8 @@ export const IncrementControl = ({
   paginatorButtonSelectedColor,
   paginatorButtonBackgroundColor,
 }: IIncrementDecrement) => {
+  const { isXs } = useWindowSize();
+
   const btnGoToLastElement = () => {
     const lastElements = totalPage % pageGroup;
     let lastGroupSize;
@@ -45,7 +48,7 @@ export const IncrementControl = ({
 
   return pageNumbers.length > upperPageGroupSize ? (
     <>
-      <PaginatorItem>
+      <PaginatorItem isXs={isXs}>
         <IncrementButton
           pageSeleted={lastPage}
           currentPage={currentPage}
@@ -59,7 +62,7 @@ export const IncrementControl = ({
           &hellip;{' '}
         </IncrementButton>
       </PaginatorItem>
-      <PaginatorItem>
+      <PaginatorItem isXs={isXs}>
         <LastPageButton
           pageSeleted={lastPage}
           currentPage={currentPage}
@@ -76,9 +79,9 @@ export const IncrementControl = ({
   ) : null;
 };
 
-const PaginatorItem = styled.li`
+const PaginatorItem = styled.li<any>`
   display: inline-block;
-  margin: 0 5px;
+  margin: ${({ isXs }) => (isXs ? '0 2.5px' : '0 5px')};
 `;
 
 const IncrementButton = styled(PageButton)``;

@@ -1,4 +1,5 @@
 export interface IPaginatorInterface {
+  isXs?: boolean;
   disabled?: boolean;
   iconColor?: string;
   disabledColor?: string;

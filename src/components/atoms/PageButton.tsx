@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IPageButton } from '../../interfaces';
+import { useWindowSize } from '../../libs';
 
 export const PageButton = (props: any) => {
   const {
@@ -14,9 +15,11 @@ export const PageButton = (props: any) => {
     paginatorButtonBackgroundColor,
     paginatorButtonSelectedBackgroundColor,
   } = props;
+  const { isXs } = useWindowSize();
 
   return (
     <ButtonWrapper
+      isXs={isXs}
       pageSeleted={pageSeleted}
       currentPage={currentPage}
       onClick={() => onClick(pageSeleted)}
@@ -55,7 +58,7 @@ const ButtonWrapper = styled.button<IPageButton>`
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  padding: 10px 15px;
+  padding: ${({ isXs }) => (isXs ? '5px 10px' : '10px 15px')};
   font-weight: bold;
   vertical-align: text-top;
   :hover {

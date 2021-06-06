@@ -23,14 +23,14 @@ export const PrevAndNextButton = (props: IPrevAndNextButton) => {
     paginatorButtonHoverColor,
     backAndNextTextButtonColor,
   } = props;
-  const { isMobile } = useWindowSize();
+  const { isXs } = useWindowSize();
   return isNext ? (
     <Button
       onClick={onClick}
       disabled={disabled}
       paginatorButtonHoverColor={paginatorButtonHoverColor}
     >
-      {!hideBackNextButtonText && !isMobile && (
+      {!hideBackNextButtonText && !isXs && (
         <ButtonText
           isNext={isNext}
           disabled={disabled}
@@ -49,7 +49,7 @@ export const PrevAndNextButton = (props: IPrevAndNextButton) => {
       paginatorButtonHoverColor={paginatorButtonHoverColor}
     >
       {children}
-      {!hideBackNextButtonText && !isMobile && (
+      {!hideBackNextButtonText && !isXs && (
         <ButtonText
           disabled={disabled}
           disabledColor={disabledColor}
@@ -69,7 +69,7 @@ const Button = styled.button<IPrevAndNextButton>`
   align-items: center;
   border: none;
   border-radius: 5px;
-  cursor: pointer;  
+  cursor: pointer;
   padding: 5px;
   :disabled {
     background-color: transparent !important;
