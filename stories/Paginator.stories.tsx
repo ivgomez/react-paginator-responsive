@@ -46,7 +46,7 @@ stories.add('Paginator', () => {
     callback: callbackHandle,
     items: data,
     page: 1,
-    pageGroupSize: 6,
+    pageGroupSize: 7,
     pageSize: 10,
     styles,
     totalItems: totalPages,

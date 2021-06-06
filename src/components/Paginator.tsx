@@ -18,7 +18,7 @@ export const Paginator = (props: IPaginator) => {
     items = [],
     pageSize = 10,
     totalItems = 50,
-    pageGroupSize = 6,
+    pageGroupSize = 7,
     callback,
     styles = {},
   } = props;
@@ -38,8 +38,8 @@ export const Paginator = (props: IPaginator) => {
     paginatorButtonSelectedBackgroundColor,
   } = styles;
 
-  const { isMobile, isXs } = useWindowSize();
-  const pageGroup = isMobile ? 3 : pageGroupSize;
+  const { isMobile, isXs, isTablet } = useWindowSize();
+  const pageGroup = isMobile ? 3 : isTablet ? 5 : pageGroupSize;
   const [currentPage, setcurrentPage] = useState(page);
   const [lowerPageGroupSize, setlowerPageGroupSize] = useState(0);
   const [isBackButtonEnabled, setIsBackButtonEnabled] = useState(true);
