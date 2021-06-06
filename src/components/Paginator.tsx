@@ -38,8 +38,8 @@ export const Paginator = (props: IPaginator) => {
     paginatorButtonSelectedBackgroundColor,
   } = styles;
 
-  const { isMobile } = useWindowSize();
-  const pageGroup = isMobile ? 4 : pageGroupSize;
+  const { isMobile, isXs, isTablet } = useWindowSize();
+  const pageGroup = isMobile ? 3 : isTablet ? 5 : pageGroupSize;
   const [currentPage, setcurrentPage] = useState(page);
   const [lowerPageGroupSize, setlowerPageGroupSize] = useState(0);
   const [isBackButtonEnabled, setIsBackButtonEnabled] = useState(true);
@@ -126,6 +126,7 @@ export const Paginator = (props: IPaginator) => {
           backAndNextTextButtonColor={backAndNextTextButtonColor}
         >
           <NavigateBeforeIcon
+            isXs={isXs}
             iconColor={iconColor}
             disabledColor={disabledColor}
             disabled={isBackButtonEnabled}
@@ -195,6 +196,7 @@ export const Paginator = (props: IPaginator) => {
           backAndNextTextButtonColor={backAndNextTextButtonColor}
         >
           <NavigateNextIcon
+            isXs={isXs}
             iconColor={iconColor}
             disabledColor={disabledColor}
             disabled={isNextButtonEnabled}
@@ -225,8 +227,8 @@ const PaginatorWrapper = styled.div<IPaginatorInterface>`
       } else return 'space-between';
     }};
         
-    margin: ${({ lateralMargin, isMobile }: any) =>
-      isMobile ? '0' : lateralMargin || '0 2rem'};
+    margin: ${({ lateralMargin, isXs }: any) =>
+      isXs ? '0' : lateralMargin || '0 2rem'};
     
   `}
 `;
@@ -253,14 +255,14 @@ const PaginatorInfo = styled.span<IPaginatorInterface>`
 
 const NavigateNextIcon = styled(NavigateNext)<IPaginatorInterface>`
   heigth: auto;
-  width: 28px;
+  width: ${({ isXs }) => (isXs ? '24px' : '28px')};
   color: ${({ disabled, disabledColor, iconColor }) =>
     disabled ? disabledColor : iconColor};
 `;
 
 const NavigateBeforeIcon = styled(NavigateBefore)<IPaginatorInterface>`
   heigth: auto;
-  width: 28px;
+  width: ${({ isXs }) => (isXs ? '24px' : '28px')};
   color: ${({ disabled, disabledColor, iconColor }) =>
     disabled ? disabledColor : iconColor};
 `;

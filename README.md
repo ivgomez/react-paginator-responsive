@@ -21,7 +21,6 @@ npm i react-paginator-responsive
   <img width="80%" src="https://github.com/ivgomez/react-paginator-responsive/blob/main/docs/images/paginatorGif.gif">
 </p>
 
-
 ```
 import { Paginator } from "react-paginator-responsive";
 

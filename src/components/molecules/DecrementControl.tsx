@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { PageButton } from '../atoms';
 import { IIncrementDecrement } from '../../interfaces';
+import { useWindowSize } from '../../libs';
 
 export const DecrementControl = ({
   firstPage,
@@ -20,6 +21,8 @@ export const DecrementControl = ({
   paginatorButtonSelectedColor,
   paginatorButtonBackgroundColor,
 }: IIncrementDecrement) => {
+  const { isXs } = useWindowSize();
+
   const btnDecrementClick = () => {
     const previousPageNumber = upperPageGroupSize - pageGroup;
     setUpperPageGroupSize(upperPageGroupSize - pageGroup);
@@ -30,7 +33,7 @@ export const DecrementControl = ({
 
   return lowerPageGroupSize >= 1 ? (
     <>
-      <PaginatorItem>
+      <PaginatorItem isXs={isXs}>
         <FirstPageButton
           pageSeleted={firstPage}
           currentPage={currentPage}
@@ -43,7 +46,7 @@ export const DecrementControl = ({
           {firstPage}
         </FirstPageButton>
       </PaginatorItem>
-      <PaginatorItem>
+      <PaginatorItem isXs={isXs}>
         <DecrementButton
           pageSeleted={lastPage}
           onClick={btnDecrementClick}
@@ -60,9 +63,9 @@ export const DecrementControl = ({
   ) : null;
 };
 
-const PaginatorItem = styled.li`
+const PaginatorItem = styled.li<any>`
   display: inline-block;
-  margin: 0 5px;
+  margin: ${({ isXs }) => (isXs ? '0 2.5px' : '0 5px')};
 `;
 
 const DecrementButton = styled(PageButton)``;

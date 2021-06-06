@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { IIncrementDecrement } from '../../interfaces';
 import { PageButton } from '../atoms';
+import { useWindowSize } from '../../libs';
 
 export const PageButtonsControl = ({
   pageNumbers = [],
@@ -16,6 +17,8 @@ export const PageButtonsControl = ({
   paginatorButtonBackgroundColor,
   paginatorButtonSelectedBackgroundColor,
 }: IIncrementDecrement) => {
+  const { isXs } = useWindowSize();
+
   const handleClick = (pageSeleted: number) => {
     setcurrentPage(pageSeleted);
     setPrevAndNextBtnClass(pageSeleted);
@@ -25,7 +28,7 @@ export const PageButtonsControl = ({
     <>
       {pageNumbers.map((number: number) =>
         number === 1 && currentPage === 1 ? (
-          <PaginatorItem key={number}>
+          <PaginatorItem key={number} isXs={isXs}>
             <PageButton
               pageSeleted={number}
               currentPage={currentPage}
@@ -44,7 +47,7 @@ export const PageButtonsControl = ({
         ) : (
           number < upperPageGroupSize + 1 &&
           number > lowerPageGroupSize && (
-            <PaginatorItem key={number}>
+            <PaginatorItem key={number} isXs={isXs}>
               <PageButton
                 pageSeleted={number}
                 currentPage={currentPage}
@@ -67,7 +70,7 @@ export const PageButtonsControl = ({
   );
 };
 
-const PaginatorItem = styled.li`
+const PaginatorItem = styled.li<any>`
   display: inline-block;
-  margin: 0 5px;
+  margin: ${({ isXs }) => (isXs ? '0 2.5px' : '0 5px')};
 `;
