@@ -68,14 +68,13 @@ export default App;
 
 ## Props
 
-| Name         | Type              | Description                                          |
-| ------------ | ----------------- | ---------------------------------------------------- | --------------------------------------------- | --- |
-| **page**     | number            | current page.                                        |
-| **pageSize** | number            | Items displayed by page.                             |
-| <!--         | **pageGroupSize** | number                                               | Buttons page size displayed in the paginator. | --> |
-| **items**    | object array      | Data.                                                |
-| **callback** | function          | Function to call the endpoint with a new page value. |
-| **styles**   | object            | Custom styles.                                       |
+| Name         | Type         | Description                                          |
+| ------------ | ------------ | ---------------------------------------------------- |
+| **page**     | number       | current page.                                        |
+| **pageSize** | number       | Items displayed by page.                             |
+| **items**    | object array | Data.                                                |
+| **callback** | function     | Function to call the endpoint with a new page value. |
+| **styles**   | object       | Custom styles.                                       |
 
 ## Custom Styles Props
 
